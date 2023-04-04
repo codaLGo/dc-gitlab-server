@@ -7,7 +7,7 @@ services:
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         gitlab_rails['gitlab_shell_ssh_port'] = 22
-        external_url 'https://your-domain.net:443'
+        external_url 'https://yourdomain.net:443'
     ports:
       - "443:443"
       - "80:80"
