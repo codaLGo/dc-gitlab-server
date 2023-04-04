@@ -4,7 +4,7 @@ sudo apt install docker-compose
 docker ps
 
 # Клонируем репозиторий и забираем файл docker-compose
-git clone git clone https://gitlab.com/bulgakov_efsol/dc-gitlab-server.git
+git clone git clone https://github.com/codaLGo/dc-gitlab-server.git
 
 cd ~/dc-gitlab-server
 
