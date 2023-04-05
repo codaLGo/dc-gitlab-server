@@ -11,7 +11,7 @@ cd ~/dc-gitlab-server
 # Конфигурируем файл в соответствии с сетевыми настройками и поднимаем контейнеры
 sudo nano docker-compose.yml
 
-docker-compose up
+docker-compose up -d
 
 # Ждём когда поднимется: будет статус healthy
 docker ps
