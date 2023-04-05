@@ -2,16 +2,18 @@ version: '3.6'
 services:
   gitlab:
     image: gitlab/gitlab-ce:latest
-    hostname: 10.106.65.24
+#  hostname: 10.106.65.24
+    hostname: yourdomain.net
     restart: unless-stopped
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        gitlab_rails['gitlab_shell_ssh_port'] = 22
+#       gitlab_rails['gitlab_shell_ssh_port'] = 22
+        gitlab_rails['gitlab_shell_ssh_port'] = 50022
         external_url 'https://yourdomain.net:443'
     ports:
       - "443:443"
       - "80:80"
-      - "22:22"
+      - "50022:22"
     volumes:
       - /data/docker/gitlab/etc/gitlab:/etc/gitlab
       - /data/docker/gitlab/var/opt/gitlab:/var/opt/gitlab
@@ -19,16 +21,16 @@ services:
     networks:
       - gitlab_net
 
-  gitlab-runner:
-    image: gitlab/gitlab-runner:alpine
-    restart: unless-stopped
-    depends_on:
-      - gitlab
-    volumes:
-      - /data/docker/gitlab/etc/gitlab-runner:/etc/gitlab-runner
-      - /data/docker/gitlab/var/run/docker.sock:/var/run/docker.sock
-    networks:
-      - gitlab_net
+#  gitlab-runner:
+#    image: gitlab/gitlab-runner:alpine
+#    restart: unless-stopped
+#    depends_on:
+#      - gitlab
+#    volumes:
+#      - /data/docker/gitlab/etc/gitlab-runner:/etc/gitlab-runner
+#      - /data/docker/gitlab/var/run/docker.sock:/var/run/docker.sock
+#    networks:
+#      - gitlab_net
 
 networks:
   gitlab_net:
